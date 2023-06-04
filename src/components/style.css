@@ -38,6 +38,16 @@ body {
   font-size: 1.4rem;
 }
 
+.login-logout-btn {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .search-btn:hover {
   background-color: red;
 }
@@ -61,6 +71,14 @@ body {
   cursor: pointer;
 }
 
+.error-container {
+  font-size: xx-large;
+  font-weight: 200;
+  color: red;
+  text-align: center;
+  margin: 100px;
+}
+
 .restaurantList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -76,7 +94,7 @@ body {
 .card {
   width: 400px;
   min-height: 500px;
-  background-color: #fff;
+  /* background-color: #fff; */
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -129,4 +147,60 @@ body {
   align-items: center;
   height: 50px;
   color: white;
+}
+
+/* shimmer-card */
+
+.shimmer-card {
+  background-color: #e1e1e1;
+  border-color: #d3d5df;
+  box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.shimmer-title {
+  width: 60%;
+  margin-top: 10px;
+}
+.shimmer-tags {
+  width: 80%;
+  margin-top: 4px;
+}
+.shimmer-details {
+  width: 100%;
+  margin-top: 18px;
+}
+.card .shimmer-img {
+  height: 250px;
+  width: 400px;
+}
+
+.shimmer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-block: 60px;
+  gap: 30px;
+  padding-inline: 60px;
+}
+
+/*Animation to Shimmer Component Cards */
+.stroke {
+  height: 15px;
+  background: #777;
+}
+.animate {
+  animation: shimmer 3s;
+  animation-iteration-count: infinite;
+  background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+  background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -1000px 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
 }
