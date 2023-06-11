@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { BsFillCartPlusFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export const BrandLogo = () => {
   return <h1>FoodVilla</h1>;
@@ -11,11 +13,17 @@ const Header = () => {
     <div className="navbar">
       <BrandLogo />
       <ul className="nav-links" style={{ listStyleType: "none" }}>
-        <li>Home</li>
-        <li>about Us</li>
-        <li>Contact US</li>
         <li>
-          <i className="fa-solid fa-cart"></i>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">about Us</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact US</Link>
+        </li>
+        <li className="cart-icon">
+          <BsFillCartPlusFill className="cart-icon" />
         </li>
       </ul>
       {isLogedIn ? (
@@ -26,9 +34,14 @@ const Header = () => {
           Logout
         </button>
       ) : (
-        <button className="login-logout-btn" onClick={() => setIsLogedIn(true)}>
-          Login
-        </button>
+        <Link to="/login">
+          <button
+            className="login-logout-btn"
+            onClick={() => setIsLogedIn(true)}
+          >
+            Login
+          </button>
+        </Link>
       )}
     </div>
   );

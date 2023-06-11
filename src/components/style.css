@@ -6,6 +6,11 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .navbar {
   height: 10%;
   display: flex;
@@ -36,6 +41,12 @@ body {
   font-size: x-large;
   cursor: pointer;
   font-size: 1.4rem;
+}
+
+.cart-icon {
+  width: 25px;
+  height: 25px;
+  padding-bottom: 5px;
 }
 
 .login-logout-btn {
@@ -203,4 +214,14 @@ body {
   to {
     background-position: 1000px 0;
   }
+}
+
+.Error-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  color: red;
+  height: 70vh;
 }
