@@ -12,8 +12,7 @@ const useRestaurantInfo = (resId) => {
     try {
       const data = await fetch(FETCH_MENU_API + resId + "&submitAction=ENTER");
       const json = await data.json();
-      const info = json?.data?.cards[0]?.card?.card?.info;
-      setRestaurantInfo(info);
+      setRestaurantInfo(json?.data);
     } catch (error) {
       console.log(error);
     }

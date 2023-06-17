@@ -11,10 +11,9 @@ const Body = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
 
   const youAreOnline = useOnline();
-  console.log(youAreOnline);
 
   // useEffect hook's callback function is only call after first render of component only ones because of the Empty dependicies Array
   useEffect(() => {
@@ -22,11 +21,11 @@ const Body = () => {
   }, []);
 
   async function updateState() {
-    setIsLoaded(false);
+    setIsLoaded(true);
     const restaurantsCards = await getAllRestaurants();
     setAllRestaurants(restaurantsCards);
     setFilteredRestaurants(restaurantsCards);
-    setIsLoaded(true);
+    setIsLoaded(false);
   }
 
   if (!youAreOnline) {
@@ -37,7 +36,7 @@ const Body = () => {
 
   return (
     <>
-      <div className="w-full flex items-center justify-center pt-32 gap-5">
+      <div className="w-full flex items-center justify-center pt-2 gap-5">
         <input
           className="w-2/4 rounded-sm p-2 my-11 border outline-none"
           type="search"
@@ -71,10 +70,10 @@ const Body = () => {
       {errorMessage && <div className="error-container">{errorMessage}</div>}
 
       {/* Conditional Rendering  */}
-      {!isLoaded ? (
+      {isLoaded ? (
         <Shimmer />
       ) : (
-        <div className="w-full flex gap-x-5 gap-y-20 pt-5 flex-wrap items-start justify-center">
+        <div className="w-full flex gap-x-5 gap-y-20 pb-5 flex-wrap items-start justify-center">
           {filteredRestaurants?.map((restaurant) => {
             return (
               // passing unique key to every component for fast Reconciliation

@@ -9,6 +9,7 @@ import Error from "./components/Error";
 import Login from "./components/Login";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { AboutUsShimmer } from "./components/Shimmer";
+import Cart from "./components/Cart";
 
 const About = lazy(() => import("./components/About"));
 
@@ -47,6 +48,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

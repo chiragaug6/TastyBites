@@ -1,13 +1,9 @@
 const CardShimmer = () => {
   return (
-    <div className="w-60 p-2 bg-slate-200 h-64">
-      <img className="" />
-      <div className="">
-        <h2 className=""></h2>
-        <p className=""></p>
-        <p className=""></p>
-        <p className=""></p>
-      </div>
+    <div className="w-72 h-80 pl-5 pr-5 pt-5 pb-14 border border-white">
+      <div className="Image w-64 h-40 bg-slate-100"></div>
+      <div className="w-40 h-4 mt-5 bg-slate-100"></div>
+      <div className="w-28 h-4 mt-5 bg-slate-100"></div>
     </div>
   );
 };
@@ -18,14 +14,18 @@ export const AboutUsShimmer = () => {
 
 export const RestaurantMenuShimmer = () => {
   return (
-    <div className="h-80 w-64 bg-slate-300 flex items-center justify-center"></div>
+    <div className="w-72 h-80 pl-5 pr-5 pt-5 pb-14 border border-white">
+      <div className="Image w-64 h-40 bg-slate-100"></div>
+      <div className="w-40 h-4 mt-5 bg-slate-100"></div>
+      <div className="w-28 h-4 mt-5 bg-slate-100"></div>
+    </div>
   );
 };
 
 const Shimmer = () => {
   return (
-    <div className="flex flex-wrap gap-12 items-center justify-center m-6">
-      {new Array(10).fill(0).map((element, index) => {
+    <div className="flex flex-wrap gap-12 items-center justify-center">
+      {new Array(4).fill(0).map((element, index) => {
         return <CardShimmer key={index} />;
       })}
     </div>

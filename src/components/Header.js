@@ -11,19 +11,23 @@ const Header = () => {
   const [isLogedIn, setIsLogedIn] = useState(false);
 
   return (
-    <div className="px-44 w-full h-24 text-xl flex justify-between items-center bg-yellow-300 fixed shadow-lg">
+    <div className="px-44 w-full h-24 text-xl flex justify-between items-center bg-black text-white shadow-lg">
       <BrandLogo />
       <ul className="flex w-1/3 justify-between">
         <li>
-          <Link to="/">Home</Link>
+          <Link className="hover:text-orange-400" to="/">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/about">about Us</Link>
+          <Link className="hover:text-orange-400" to="/about">
+            about Us
+          </Link>
         </li>
         {isLogedIn ? (
           <li>
             <button
-              className="login-logout-btn"
+              className="hover:text-orange-400"
               onClick={() => setIsLogedIn(false)}
             >
               Logout
@@ -33,7 +37,7 @@ const Header = () => {
           <li>
             <Link to="/login">
               <button
-                className="login-logout-btn"
+                className="hover:text-orange-400"
                 onClick={() => setIsLogedIn(true)}
               >
                 Sign In
@@ -41,8 +45,10 @@ const Header = () => {
             </Link>
           </li>
         )}
-        <li className="cart-icon">
-          <BsFillCartPlusFill className="cart-icon" />
+        <li className="cart-icon cursor-pointer">
+          <Link to="/cart">
+            <BsFillCartPlusFill className="cart-icon" />
+          </Link>
         </li>
       </ul>
     </div>
