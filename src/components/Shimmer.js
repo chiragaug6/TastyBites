@@ -25,7 +25,7 @@ export const RestaurantMenuShimmer = () => {
 const Shimmer = () => {
   return (
     <div className="flex flex-wrap gap-12 items-center justify-center">
-      {new Array(4).fill(0).map((element, index) => {
+      {new Array(12).fill(0).map((element, index) => {
         return <CardShimmer key={index} />;
       })}
     </div>

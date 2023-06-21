@@ -1,7 +1,7 @@
+import { useSelector } from "react-redux";
 import { useState } from "react";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import useOnline from "../utils/useOnline";
 
 export const BrandLogo = () => {
   return <h1 className="bg-slate-950 text-white p-2">Food Wallah</h1>;
@@ -9,6 +9,8 @@ export const BrandLogo = () => {
 
 const Header = () => {
   const [isLogedIn, setIsLogedIn] = useState(false);
+
+  const cartItems = useSelector((store) => store.cart);
 
   return (
     <div className="px-44 w-full h-24 text-xl flex justify-between items-center bg-black text-white shadow-lg">
@@ -45,11 +47,12 @@ const Header = () => {
             </Link>
           </li>
         )}
-        <li className="cart-icon cursor-pointer">
-          <Link to="/cart">
+        <li>
+          <Link className="flex" to="/cart">
             <BsFillCartPlusFill className="cart-icon" />
           </Link>
         </li>
+        <li className="text-white">Cart-items-{cartItems.length}</li>
       </ul>
     </div>
   );

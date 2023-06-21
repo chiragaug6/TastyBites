@@ -2,12 +2,20 @@ import { useParams } from "react-router-dom";
 import useRestaurantInfo from "../utils/useRestaurantInfo";
 import { RestaurantMenuShimmer } from "./Shimmer";
 import { IMG_CDN_URL } from "../config";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const RestaurantMenu = () => {
   const params = useParams();
   const { resId } = params;
 
   const restaurantInfo = useRestaurantInfo(resId);
+
+  const dispatch = useDispatch();
+
+  const handleAdd = (item) => {
+    dispatch(addItem(item));
+  };
 
   console.log("restaurantInfo");
   console.log(restaurantInfo);
@@ -85,10 +93,13 @@ const RestaurantMenu = () => {
                   <img
                     src={IMG_CDN_URL + recRes?.card?.info?.imageId}
                     alt="Food Image"
-                    className="w-32 h-20 "
+                    className="w-32 h-20"
                   />
                 )}
-                <button className="h-5 w-24 rounded-sm  font-semibold shadow-lg text-xs bg-green-300 transition-shadow hover:text-center hover:scale-105">
+                <button
+                  onClick={() => handleAdd(recRes?.card?.info)}
+                  className="h-5 w-24 rounded-sm  font-semibold shadow-lg text-xs bg-green-300 transition-shadow hover:text-center hover:scale-105"
+                >
                   ADD TO CART
                 </button>
               </div>
