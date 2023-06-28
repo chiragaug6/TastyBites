@@ -1,10 +1,16 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { BsFillCartPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 export const BrandLogo = () => {
-  return <h1 className="bg-slate-950 text-white p-2">Food Wallah</h1>;
+  return (
+    <Link to="/">
+      <h1 className="bg-white rounded-full font-bold text-black p-2">
+        FoodCenter
+      </h1>
+    </Link>
+  );
 };
 
 const Header = () => {
@@ -13,7 +19,7 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart);
 
   return (
-    <div className="px-44 w-full h-24 text-xl flex justify-between items-center bg-black text-white shadow-lg">
+    <div className="px-44 w-full h-24 text-xl flex justify-between items-center bg-red-500 text-white shadow-lg font-Poppins">
       <BrandLogo />
       <ul className="flex w-1/3 justify-between">
         <li>
@@ -23,10 +29,10 @@ const Header = () => {
         </li>
         <li>
           <Link className="hover:text-orange-400" to="/about">
-            about Us
+            Project Info
           </Link>
         </li>
-        {isLogedIn ? (
+        {/* {isLogedIn ? (
           <li>
             <button
               className="hover:text-orange-400"
@@ -46,13 +52,16 @@ const Header = () => {
               </button>
             </Link>
           </li>
-        )}
+        )} */}
         <li>
           <Link className="flex" to="/cart">
-            <BsFillCartPlusFill className="cart-icon" />
+            <FaShoppingCart />
+            <span className="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center text-base text-white relative top-[-8] right-1">
+              {cartItems.length}
+            </span>
           </Link>
         </li>
-        <li className="text-white">Cart-items-{cartItems.length}</li>
+        {/* <li className="text-white font-mono">CART-{cartItems.length}</li> */}
       </ul>
     </div>
   );

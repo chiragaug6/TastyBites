@@ -4,6 +4,8 @@ import { RestaurantMenuShimmer } from "./Shimmer";
 import { IMG_CDN_URL } from "../config";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
+import { FaStar } from "react-icons/fa";
+// import { FaLocationDot } from "react-icons";
 
 const RestaurantMenu = () => {
   const params = useParams();
@@ -35,7 +37,7 @@ const RestaurantMenu = () => {
   return !restaurantInfo ? (
     <RestaurantMenuShimmer />
   ) : (
-    <div className="w-2/3 mx-auto h-auto border border-slate-300 ">
+    <div className="w-2/3 mx-auto h-auto border border-slate-300 font-Poppins">
       <div className="flex justify-between items-start p-6">
         <div className="flex flex-col gap-1">
           <span className="text-2xl font-bold break-words text-[#282C3F]">
@@ -46,9 +48,11 @@ const RestaurantMenu = () => {
           </span>
           <span className="text-[13px] text-[#686b78]">
             {info.areaName}, {info.city}
+            {/* <FaLocationDot /> */}
           </span>
-          <span className="text-[13px] text-[#686b78]">
-            {info.avgRating} | {info.totalRatings}+ratings
+          <span className="text-[13px] text-[#686b78] flex gap-1 items-center">
+            {info.avgRating} <FaStar className="text-green-500" /> |{" "}
+            {info.totalRatings / 1000}K+ ratings
           </span>
         </div>
         <img
@@ -68,11 +72,8 @@ const RestaurantMenu = () => {
       </div>
       {recommended?.map((recRes) => {
         return (
-          <>
-            <div
-              key={recRes?.card?.info?.id}
-              className="flex justify-between px-7 my-6 border-black bottom-1"
-            >
+          <div key={recRes?.card?.info?.id}>
+            <div className="flex justify-between px-7 my-6 border-black bottom-1 font-Poppins">
               <div className="flex flex-col gap-2">
                 <h1 className="text-base font-semibold">
                   {recRes?.card?.info?.name}
@@ -82,7 +83,7 @@ const RestaurantMenu = () => {
                   {recRes?.card?.info?.description}
                 </p>
               </div>
-              <div className="text-center">
+              <div className="text-center flex flex-col gap-2  items-center justify-center">
                 {recRes?.card?.info?.imageId == undefined ? (
                   <img
                     src="https://placehold.co/128x80"
@@ -93,19 +94,19 @@ const RestaurantMenu = () => {
                   <img
                     src={IMG_CDN_URL + recRes?.card?.info?.imageId}
                     alt="Food Image"
-                    className="w-32 h-20"
+                    className="w-32 h-20 rounded-xl"
                   />
                 )}
                 <button
                   onClick={() => handleAdd(recRes?.card?.info)}
-                  className="h-5 w-24 rounded-sm  font-semibold shadow-lg text-xs bg-green-300 transition-shadow hover:text-center hover:scale-105"
+                  className="h-7 w-28 rounded-sm font-semibold shadow-lg text-xs bg-green-300 transition-shadow text-center"
                 >
                   ADD TO CART
                 </button>
               </div>
             </div>
-            <hr className="mx-6" />
-          </>
+            <hr className="mx-8" />
+          </div>
         );
       })}
     </div>

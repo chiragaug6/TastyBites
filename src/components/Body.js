@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterRestaurantsByName, getAllRestaurants } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import noResult from "../assets/Images/no-results.png";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -35,10 +36,10 @@ const Body = () => {
   // if (!allRestaurants) return null;
 
   return (
-    <>
-      <div className="w-full flex items-center justify-center pt-2 gap-5">
+    <div className="bg-white">
+      <div className="w-full flex items-center justify-center pt-2">
         <input
-          className="w-2/4 rounded-sm p-2 my-11 border outline-none"
+          className="w-2/4 rounded-l-xl p-2 my-11 border outline-none"
           type="search"
           value={searchInput}
           placeholder="Search 🔎..."
@@ -53,7 +54,7 @@ const Body = () => {
           }}
         />
         <button
-          className="w-32 h-10 bg-black text-white rounded-lg"
+          className="w-32 h-11 text-white bg-red-500 rounded-r-xl"
           onClick={() => {
             const [data, ErrorMsg] = filterRestaurantsByName(
               searchInput,
@@ -67,7 +68,15 @@ const Body = () => {
         </button>
       </div>
 
-      {errorMessage && <div className="error-container">{errorMessage}</div>}
+      {/* {errorMessage && <div className="error-container">{errorMessage}</div>} */}
+
+      {errorMessage && (
+        <img
+          className="h-96 w-96 m-auto"
+          src={noResult}
+          alt="No Result Found"
+        />
+      )}
 
       {/* Conditional Rendering  */}
       {isLoaded ? (
@@ -87,7 +96,7 @@ const Body = () => {
           })}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
