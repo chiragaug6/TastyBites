@@ -16,7 +16,7 @@ const FoodItem = ({ name, description, imageId, price, id }) => {
           <img
             src="https://placehold.co/128x80"
             alt="Food Image"
-            className="w-32 h-20 rounded-md"
+            className="w-32 h-24 rounded-md"
           />
         ) : (
           <img

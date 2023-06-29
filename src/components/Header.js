@@ -29,7 +29,7 @@ const Header = () => {
         </li>
         <li>
           <Link className="hover:text-orange-400" to="/about">
-            Project Info
+            About Project
           </Link>
         </li>
         {/* {isLogedIn ? (

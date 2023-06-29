@@ -32,7 +32,11 @@ const Cart = () => {
         {cartItems.map((item) => (
           <FoodItem key={item?.id} {...item} />
         ))}
+        <button className="w-44 h-10 bg-black text-white mt-10">
+          CheckOut
+        </button>
       </div>
+      <div></div>
     </div>
   );
 };

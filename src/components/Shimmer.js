@@ -1,7 +1,7 @@
 const CardShimmer = () => {
   return (
-    <div className="w-72 h-80 pl-5 pr-5 pt-5 pb-14 border border-white animate-pulse">
-      <div className="Image w-64 h-40 bg-slate-300 animate-pulse"></div>
+    <div className="w-72 h-80 pl-5 pr-5 pt-5 pb-14 border border-white">
+      <div className="Image w-64 h-40 bg-slate-300"></div>
       <div className="w-40 h-4 mt-5 bg-slate-300 animate-pulse"></div>
       <div className="w-28 h-4 mt-5 bg-slate-300 animate-pulse"></div>
     </div>

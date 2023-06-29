@@ -2,22 +2,35 @@ import { useParams } from "react-router-dom";
 import useRestaurantInfo from "../utils/useRestaurantInfo";
 import { RestaurantMenuShimmer } from "./Shimmer";
 import { IMG_CDN_URL } from "../config";
-import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
-import { FaStar } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem } from "../utils/cartSlice";
+import { FaShoppingCart, FaStar } from "react-icons/fa";
+import { useState } from "react";
 // import { FaLocationDot } from "react-icons";
 
 const RestaurantMenu = () => {
-  const params = useParams();
-  const { resId } = params;
-
-  const restaurantInfo = useRestaurantInfo(resId);
+  const cartItems = useSelector((store) => store.cart);
 
   const dispatch = useDispatch();
+
+  const checkItemInCart = (id) => {
+    return cartItems.some((item) => {
+      return item?.id == id;
+    });
+  };
+
+  const handleRemove = (id) => {
+    dispatch(removeItem(id));
+  };
 
   const handleAdd = (item) => {
     dispatch(addItem(item));
   };
+
+  const params = useParams();
+  const { resId } = params;
+
+  const restaurantInfo = useRestaurantInfo(resId);
 
   console.log("restaurantInfo");
   console.log(restaurantInfo);
@@ -97,12 +110,25 @@ const RestaurantMenu = () => {
                     className="w-32 h-20 rounded-xl"
                   />
                 )}
-                <button
-                  onClick={() => handleAdd(recRes?.card?.info)}
-                  className="h-7 w-28 rounded-sm font-semibold shadow-lg text-xs bg-green-300 transition-shadow text-center"
-                >
-                  ADD TO CART
-                </button>
+
+                {(result = checkItemInCart(recRes?.card?.info?.id))}
+                {result ? (
+                  <button
+                    className="h-7 w-28 rounded-sm font-semibold shadow-lg text-xs bg-red-400 flex items-center justify-center gap-2 transition-all"
+                    onClick={() => handleRemove(recRes?.card?.info?.id)}
+                  >
+                    <FaShoppingCart /> Remove
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      handleAdd(recRes?.card?.info);
+                    }}
+                    className="h-7 w-28 rounded-sm font-semibold shadow-lg text-xs bg-green-300  flex items-center justify-center gap-1 transition-all"
+                  >
+                    <FaShoppingCart /> ADD TO CART
+                  </button>
+                )}
               </div>
             </div>
             <hr className="mx-8" />

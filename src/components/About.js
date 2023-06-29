@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="w-full h-auto mt-5 p-14 text-black mb-[100vh] font-Poppins">
+    <div className="w-full h-auto mt-5 p-14 text-black mb-[10vh] font-Poppins">
       {/* <h1>About Page</h1>
       <h2>Lazy Loading or OnDemand Loading Implemented on This Route</h2> */}
       <ul className="flex flex-col gap-6 text-base">
