@@ -2,8 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 import FoodItem from "./FoodItem";
 import cartEmpty from "../assets/Images/cartEmpty.jpg";
+import { useState } from "react";
+// import { FaIndianRupeeSign } from "react-icons/fa6";
 
 const Cart = () => {
+  const [totalCost, setTotalCost] = useState(0);
+
   const cartItems = useSelector((store) => store.cart);
 
   const dispatch = useDispatch();
@@ -32,8 +36,12 @@ const Cart = () => {
         {cartItems.map((item) => (
           <FoodItem key={item?.id} {...item} />
         ))}
+        {(count = 0)}
         <button className="w-44 h-10 bg-black text-white mt-10">
-          CheckOut
+          {cartItems.forEach((item) => {
+            count += item.price;
+          })}
+          {count / 100} CheckOut
         </button>
       </div>
       <div></div>

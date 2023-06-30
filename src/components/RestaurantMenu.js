@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../utils/cartSlice";
 import { FaShoppingCart, FaStar } from "react-icons/fa";
 import { useState } from "react";
+import { FaIndianRupeeSign } from "react-icons/fa6";
 // import { FaLocationDot } from "react-icons";
 
 const RestaurantMenu = () => {
@@ -91,7 +92,10 @@ const RestaurantMenu = () => {
                 <h1 className="text-base font-semibold">
                   {recRes?.card?.info?.name}
                 </h1>
-                <h2 className="text-base">{recRes?.card?.info?.price}</h2>
+                <h2 className="text-base flex items-center">
+                  {recRes?.card?.info?.price / 100}{" "}
+                  <FaIndianRupeeSign className="text-xs" />
+                </h2>
                 <p className="text-xs text-[#535665]">
                   {recRes?.card?.info?.description}
                 </p>

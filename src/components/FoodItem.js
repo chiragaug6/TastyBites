@@ -28,7 +28,7 @@ const FoodItem = ({ name, description, imageId, price, id }) => {
         <div>
           <h2 className="font-mono text-base text-black">{name}</h2>
           <h3 className="text-xs">{description}</h3>
-          <h4 className="text-sm">Rupees: {price}</h4>
+          <h4 className="text-sm">Rupees: {price / 100}</h4>
         </div>
       </div>
       <button

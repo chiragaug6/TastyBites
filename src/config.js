@@ -7,6 +7,15 @@ export const Swiggy_API_URL =
 export const FETCH_MENU_API =
   "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0759837&lng=72.8776559&restaurantId=";
 
+export const sortingOptions = [
+  { value: "Delivery Time", label: "Delivery Time" },
+  { value: "Rating", label: "Rating" },
+  { value: "Cost: Low To High", label: "Cost: Low To High" },
+  { value: "Cost: High To Low", label: "Cost: High To Low" },
+
+  // Add more sorting options if needed
+];
+
 // RestaurantList is JSON Data for displaying cards
 export const restaurantList = [
   {
