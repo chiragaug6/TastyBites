@@ -9,26 +9,28 @@ const FoodItem = ({ name, description, imageId, price, id }) => {
     dispatch(removeItem(id));
   };
 
+  // const totalCost = (price) => {};
+
   return (
-    <div className="w-2/3 h-32 p-4 mb-4 mt-4 hover:shadow-md border-2 border-gray-100 rounded-lg bg-white flex items-center justify-between font-Poppins ">
+    <div className="w-2/3 h-auto p-4 mb-4 mt-4 hover:shadow-lg border-2 border-gray-100 rounded-lg bg-white flex items-center justify-between font-Poppins lg:w-4/5 md:w-11/12 sm:w-full">
       <div className="flex gap-8 items-center">
         {imageId == undefined ? (
           <img
             src="https://placehold.co/128x80"
             alt="Food Image"
-            className="w-32 h-24 rounded-md"
+            className="w-32 h-24 rounded-md sm:w-24"
           />
         ) : (
           <img
             src={IMG_CDN_URL + imageId}
             alt="Food Image"
-            className="w-36 h-24 rounded-md"
+            className="w-36 h-24 rounded-md sm:w-24"
           />
         )}
         <div>
-          <h2 className="font-mono text-base text-black">{name}</h2>
-          <h3 className="text-xs">{description}</h3>
-          <h4 className="text-sm">Rupees: {price / 100}</h4>
+          <h2 className="font-mono text-base text-black md:text-sm">{name}</h2>
+          <h3 className="text-xs md:hidden">{description}</h3>
+          <h4 className="text-sm md:text=xs">Rupees: {price / 100}</h4>
         </div>
       </div>
       <button

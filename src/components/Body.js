@@ -80,26 +80,29 @@ const Body = () => {
 
   return (
     <div className="bg-white">
-      <div className="w-full flex  items-center justify-between px-44 pt-2 boredr-2 border-red-200">
+      <div className="w-full flex items-center justify-between px-44 pt-2 boredr-2 border-red-200 xl:px-28 lg:px-10 md:flex-col md:px-8 sm:px-0 sm:mb-6">
         {/* Searching */}
-        <div className="w-1/2 flex items-center justify-start pt-2 boredr-2 border-red-200">
+        <div className="w-1/2 flex items-center justify-start pt-2 boredr-2 border-red-200 md:w-2/3 sm:w-4/5 sm:mb-5">
           <input
-            className="w-full rounded-l-xl p-2 my-11 border-2 outline-none border-red-200"
-            type="search"
+            className="w-full rounded-l-xl p-2 my-11 border-2 outline-none border-red-200 xl:my-9 lg:my-7 md:my-3 md:text-base sm:my-1 sm:p-1 sm:text-base"
+            type="text"
             value={searchInput}
             placeholder="Search 🔎..."
             onChange={(event) => {
               setSearchInput(event.target.value);
-              const [data, ErrorMsg] = filterRestaurantsByName(
-                searchInput,
-                allRestaurants
-              );
-              setFilteredRestaurants(data);
-              setErrorMessage(ErrorMsg);
+              if (event.target.value == "") {
+                setFilteredRestaurants(allRestaurants);
+              }
+              // const [data, ErrorMsg] = filterRestaurantsByName(
+              //   searchInput,
+              //   allRestaurants
+              // );
+              // setFilteredRestaurants(data);
+              // setErrorMessage(ErrorMsg);
             }}
           />
           <button
-            className="w-32 h-11 text-white font-Poppins text-xl bg-red-500 rounded-r-xl"
+            className="w-32 h-11 text-white font-Poppins text-xl bg-red-500 rounded-r-xl xl:text-lg lg:text-base md:text-sm sm:text-xs sm:w-21 sm:h-9 "
             onClick={() => {
               const [data, ErrorMsg] = filterRestaurantsByName(
                 searchInput,
@@ -113,7 +116,7 @@ const Body = () => {
           </button>
         </div>
         {/* Sorting */}
-        <div className="w-64 flex justify-center items-center gap-2 border-2 border-red-200 rounded-md">
+        <div className="w-64 flex justify-center items-center gap-2 border-2 border-red-200 rounded-md xl:w-48 md:mb-5">
           {/* <label className="text-sm font-medium text-gray-700">Sort by:</label> */}
           <select
             value={sortOption}
@@ -122,9 +125,9 @@ const Body = () => {
               handleSorting(e.target.value);
               setSortOption(e.target.value);
             }}
-            className="block w-2/3 py-2 pr-8 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            className="w-full px-5 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 xl:px-2 rounded-md md:text-sm sm:text-xs"
           >
-            <option value="">Select an option</option>
+            <option value="">Sort By </option>
             {sortingOptions.map((option) => (
               <option
                 key={option.value}
@@ -135,7 +138,7 @@ const Body = () => {
               </option>
             ))}
           </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-gray-700">
             <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
               <path
                 fillRule="evenodd"

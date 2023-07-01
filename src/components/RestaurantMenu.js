@@ -51,7 +51,7 @@ const RestaurantMenu = () => {
   return !restaurantInfo ? (
     <RestaurantMenuShimmer />
   ) : (
-    <div className="w-2/3 mx-auto h-auto border border-slate-300 font-Poppins">
+    <div className="w-2/3 mx-auto h-auto border border-slate-300 font-Poppins lg:w-4/5 md:w-11/12 sm:w-full">
       <div className="flex justify-between items-start p-6">
         <div className="flex flex-col gap-1">
           <span className="text-2xl font-bold break-words text-[#282C3F]">
@@ -72,7 +72,7 @@ const RestaurantMenu = () => {
         <img
           src={IMG_CDN_URL + info.cloudinaryImageId}
           alt="Food Image"
-          className="w-60 h-36 rounded-md"
+          className="w-60 h-36 rounded-md sm:w-40 sm:h-24"
         />
       </div>
       <hr className="mx-6" />
@@ -87,8 +87,8 @@ const RestaurantMenu = () => {
       {recommended?.map((recRes) => {
         return (
           <div key={recRes?.card?.info?.id}>
-            <div className="flex justify-between px-7 my-6 border-black bottom-1 font-Poppins">
-              <div className="flex flex-col gap-2">
+            <div className="flex justify-between px-7 my-6 border-black bottom-1 font-Poppins sm:flex-row-reverse sm:px-3 sm:text-xs">
+              <div className="flex flex-col gap-2 md:gap-5">
                 <h1 className="text-base font-semibold">
                   {recRes?.card?.info?.name}
                 </h1>
@@ -96,7 +96,7 @@ const RestaurantMenu = () => {
                   {recRes?.card?.info?.price / 100}{" "}
                   <FaIndianRupeeSign className="text-xs" />
                 </h2>
-                <p className="text-xs text-[#535665]">
+                <p className="text-xs text-[#535665] sm:hidden">
                   {recRes?.card?.info?.description}
                 </p>
               </div>

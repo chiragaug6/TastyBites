@@ -3,10 +3,11 @@ import { clearCart } from "../utils/cartSlice";
 import FoodItem from "./FoodItem";
 import cartEmpty from "../assets/Images/cartEmpty.jpg";
 import { useState } from "react";
+import { totalCost } from "../config";
 // import { FaIndianRupeeSign } from "react-icons/fa6";
 
 const Cart = () => {
-  const [totalCost, setTotalCost] = useState(0);
+  // const [totalCost, setTotalCost] = useState(0);
 
   const cartItems = useSelector((store) => store.cart);
 
@@ -17,7 +18,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="mb-96 mt-6 font-Poppins">
+    <div className="mb-44 mt-6 font-Poppins">
       <div className="flex items-center justify-center">
         <div className="h-10 w-2/3  flex justify-between">
           <span className="font-mono text-2xl">Cart-({cartItems.length})</span>
@@ -36,13 +37,12 @@ const Cart = () => {
         {cartItems.map((item) => (
           <FoodItem key={item?.id} {...item} />
         ))}
-        {(count = 0)}
-        <button className="w-44 h-10 bg-black text-white mt-10">
+        {/* <button className="w-44 h-10 bg-black text-white mt-10">
           {cartItems.forEach((item) => {
-            count += item.price;
+            totalCost += item.price;
           })}
-          {count / 100} CheckOut
-        </button>
+          {totalCost / 100} CheckOut
+        </button> */}
       </div>
       <div></div>
     </div>

@@ -7,7 +7,7 @@ export const BrandLogo = () => {
   return (
     <Link to="/">
       <h1 className="bg-white rounded-full font-bold text-black p-2">
-        FoodCenter
+        TastyBites
       </h1>
     </Link>
   );
@@ -19,9 +19,9 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart);
 
   return (
-    <div className="px-44 w-full h-24 text-xl flex justify-between items-center bg-red-500 text-white shadow-lg font-Poppins">
+    <div className="px-44 w-full h-24 text-xl flex justify-between items-center bg-red-500 text-white shadow-lg font-Poppins xl:text-lg xl:px-24 lg:text-base lg:px-11 md:px-6 sm:px-1">
       <BrandLogo />
-      <ul className="flex w-1/3 justify-between">
+      <ul className="flex w-1/3 justify-between xl:w-1/2 lg:w-2/3">
         <li>
           <Link className="hover:text-orange-400" to="/">
             Home

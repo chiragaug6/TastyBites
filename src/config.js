@@ -16,6 +16,8 @@ export const sortingOptions = [
   // Add more sorting options if needed
 ];
 
+export const totalCost = 0;
+
 // RestaurantList is JSON Data for displaying cards
 export const restaurantList = [
   {
