@@ -44,10 +44,11 @@ const Body = () => {
     //2. sort By Rating
     if (sortValue == "Rating") {
       setFilteredRestaurants((prevItems) => {
-        const sortedItems = [...prevItems].sort(
+        filterItems = prevItems.filter((item) => item.data.avgRating != "--");
+        const sortedItems = [...filterItems].sort(
           (a, b) => b.data.avgRating - a.data.avgRating
         );
-        return sortedItems;
+        return [...sortedItems];
       });
     }
 
@@ -82,9 +83,9 @@ const Body = () => {
     <div className="bg-white">
       <div className="w-full flex items-center justify-between px-44 pt-2 boredr-2 border-red-200 xl:px-28 lg:px-10 md:flex-col md:px-8 sm:px-0 sm:mb-6">
         {/* Searching */}
-        <div className="w-1/2 flex items-center justify-start pt-2 boredr-2 border-red-200 md:w-2/3 sm:w-4/5 sm:mb-5">
+        <div className="w-1/2 flex items-center justify-start pt-2 boredr-2 border-red-200 md:w-2/3 sm:w-11/12 sm:mb-5">
           <input
-            className="w-full rounded-l-xl p-2 my-11 border-2 outline-none border-red-200 xl:my-9 lg:my-7 md:my-3 md:text-base sm:my-1 sm:p-1 sm:text-base"
+            className="w-full rounded-l-xl p-2 my-11 border-2 outline-none border-red-200 xl:my-9 lg:my-7 md:my-3 md:text-base sm:my-1 sm:p-1 sm:text-xs"
             type="text"
             value={searchInput}
             placeholder="Search 🔎..."
@@ -92,6 +93,7 @@ const Body = () => {
               setSearchInput(event.target.value);
               if (event.target.value == "") {
                 setFilteredRestaurants(allRestaurants);
+                setErrorMessage("");
               }
               // const [data, ErrorMsg] = filterRestaurantsByName(
               //   searchInput,
@@ -102,7 +104,7 @@ const Body = () => {
             }}
           />
           <button
-            className="w-32 h-11 text-white font-Poppins text-xl bg-red-500 rounded-r-xl xl:text-lg lg:text-base md:text-sm sm:text-xs sm:w-21 sm:h-9 "
+            className="w-32 h-11 text-white font-Poppins text-xl bg-red-500 rounded-r-xl xl:text-lg lg:text-base md:text-sm sm:text-xs sm:w-auto  sm:h-7 sm:px-3 "
             onClick={() => {
               const [data, ErrorMsg] = filterRestaurantsByName(
                 searchInput,
@@ -116,7 +118,7 @@ const Body = () => {
           </button>
         </div>
         {/* Sorting */}
-        <div className="w-64 flex justify-center items-center gap-2 border-2 border-red-200 rounded-md xl:w-48 md:mb-5">
+        <div className="w-64 flex justify-center items-center gap-2 border-2 border-red-200 rounded-md xl:w-48 md:w-32 md:text-base sm:text-xs sm:justify-end md:mb-5">
           {/* <label className="text-sm font-medium text-gray-700">Sort by:</label> */}
           <select
             value={sortOption}
@@ -164,7 +166,7 @@ const Body = () => {
       {isLoaded ? (
         <Shimmer />
       ) : (
-        <div className="w-full flex gap-x-5 gap-y-20 pb-5 flex-wrap items-start justify-center">
+        <div className="w-full flex gap-x-5 gap-y-20 pb-5 flex-wrap items-start justify-center sm:gap-y-3 sm:pb-0">
           {filteredRestaurants?.map((restaurant) => {
             return (
               // passing unique key to every component for fast Reconciliation

@@ -14,30 +14,30 @@ export const AboutUsShimmer = () => {
 
 export const RestaurantMenuShimmer = () => {
   return (
-    <div className="w-2/3 mx-auto h-[600px] ">
+    <div className="w-2/3 mx-auto h-[600px] sm:w-full sm:h-full">
       <div className="h-52 flex justify-between p-6">
         <div className="flex flex-col gap-3">
-          <div className="w-96 h-10 rounded-sm bg-slate-300 animate-pulse"></div>
-          <div className="w-96 h-10 rounded-sm bg-slate-300 animate-pulse"></div>
-          <div className="ww-96 h-10 rounded-sm bg-slate-300 animate-pulse"></div>
-          <div className="w-96 h-10 rounded-sm bg-slate-300 animate-pulse"></div>
+          <div className="w-96 h-10 rounded-sm bg-slate-300 animate-pulse sm:w-32 sm:h-5"></div>
+          <div className="w-96 h-10 rounded-sm bg-slate-300 animate-pulse sm:w-32 sm:h-5"></div>
+          <div className="ww-96 h-10 rounded-sm bg-slate-300 animate-pulse sm:w-32 sm:h-5"></div>
+          <div className="w-96 h-10 rounded-sm bg-slate-300 animate-pulse sm:w-32 sm:h-5"></div>
         </div>
-        <div className="w-80 h-48 rounded-lg bg-slate-300 animate-pulse"></div>
+        <div className="w-80 h-48 rounded-lg bg-slate-300 animate-pulse sm:w-56 sm:h-20"></div>
       </div>
-      <div className="bg-slate-300 h-10 w-96 mt-8 mb-7 animate-pulse"></div>
+      <div className="bg-slate-300 h-10 w-96 mt-8 mb-7 animate-pulse sm:w-48 sm:h-4"></div>
       <div className="flex justify-between p-4">
         <div className="flex flex-col gap-3">
-          <div className="w-96 h-12 bg-slate-300 animate-pulse"></div>
-          <div className="w-44 h-12 bg-slate-300 animate-pulse"></div>
+          <div className="w-96 h-12 bg-slate-300 animate-pulse sm:w-48 sm:h-4"></div>
+          <div className="w-44 h-12 bg-slate-300 animate-pulse sm:w-48 sm:h-4"></div>
         </div>
-        <div className="w-28 h-28 bg-slate-300 animate-pulse"></div>
+        <div className="w-28 h-28 bg-slate-300 animate-pulse sm:w-48 sm:h-4"></div>
       </div>
       <div className="flex justify-between p-4 mt-5">
         <div className="flex flex-col gap-3">
-          <div className="w-96 h-12 bg-slate-300 animate-pulse"></div>
-          <div className="w-44 h-12 bg-slate-300 animate-pulse"></div>
+          <div className="w-96 h-12 bg-slate-300 animate-pulse sm:w-48 sm:h-4"></div>
+          <div className="w-44 h-12 bg-slate-300 animate-pulse sm:w-48 sm:h-4"></div>
         </div>
-        <div className="w-28 h-28 bg-slate-300 animate-pulse"></div>
+        <div className="w-28 h-28 bg-slate-300 animate-pulse sm:w-48 sm:h-4"></div>
       </div>
     </div>
   );
