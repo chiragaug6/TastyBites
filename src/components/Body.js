@@ -74,10 +74,12 @@ const Body = () => {
   };
 
   if (!youAreOnline) {
-    return <h1>Please Check Your Internet Connecetion</h1>;
+    return (
+      <h1 className="text-2xl font-semibold text-black text-center m-32">
+        Please Check Your Internet Connecetion
+      </h1>
+    );
   }
-
-  // if (!allRestaurants) return null;
 
   return (
     <div className="bg-white">
@@ -118,12 +120,10 @@ const Body = () => {
           </button>
         </div>
         {/* Sorting */}
-        <div className="w-64 flex justify-center items-center gap-2 border-2 border-red-200 rounded-md xl:w-48 md:w-32 md:text-base sm:text-xs sm:justify-end md:mb-5">
-          {/* <label className="text-sm font-medium text-gray-700">Sort by:</label> */}
+        <div className="w-52 flex justify-center items-center gap-2 border-2 border-red-200 rounded-md xl:w-48 md:w-32 md:text-base sm:text-xs sm:justify-end md:mb-5">
           <select
             value={sortOption}
             onChange={(e) => {
-              console.log("Something change");
               handleSorting(e.target.value);
               setSortOption(e.target.value);
             }}

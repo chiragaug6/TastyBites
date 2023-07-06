@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 
@@ -14,13 +13,12 @@ export const BrandLogo = () => {
 };
 
 const Header = () => {
-  const [isLogedIn, setIsLogedIn] = useState(false);
-
   const cartItems = useSelector((store) => store.cart);
 
   return (
-    <div className="px-44 w-full h-24 text-xl flex justify-between items-center bg-red-500 text-white shadow-lg font-Poppins xl:text-lg xl:px-24 lg:text-base lg:px-11 md:px-6 sm:px-1">
+    <div className="sticky top-0 shadow-gray-300 shadow-lg px-44 w-full h-24 text-xl flex justify-between items-center bg-red-500 text-white font-Poppins xl:text-lg xl:px-24 lg:text-base lg:px-11 md:px-6 sm:px-1">
       <BrandLogo />
+
       <ul className="flex w-1/3 justify-between xl:w-1/2 lg:w-2/3">
         <li>
           <Link className="text-red-200 hover:text-white" to="/">
@@ -32,27 +30,6 @@ const Header = () => {
             About Project
           </Link>
         </li>
-        {/* {isLogedIn ? (
-          <li>
-            <button
-              className="hover:text-orange-400"
-              onClick={() => setIsLogedIn(false)}
-            >
-              Logout
-            </button>
-          </li>
-        ) : (
-          <li>
-            <Link to="/login">
-              <button
-                className="hover:text-orange-400"
-                onClick={() => setIsLogedIn(true)}
-              >
-                Sign In
-              </button>
-            </Link>
-          </li>
-        )} */}
         <li>
           <Link className="flex" to="/cart">
             <FaShoppingCart />
@@ -61,7 +38,6 @@ const Header = () => {
             </span>
           </Link>
         </li>
-        {/* <li className="text-white font-mono">CART-{cartItems.length}</li> */}
       </ul>
     </div>
   );

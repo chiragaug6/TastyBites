@@ -4,13 +4,9 @@ import FoodItem from "./FoodItem";
 import cartEmpty from "../assets/Images/cartEmpty.jpg";
 import { useState } from "react";
 import { totalCost } from "../config";
-// import { FaIndianRupeeSign } from "react-icons/fa6";
 
 const Cart = () => {
-  // const [totalCost, setTotalCost] = useState(0);
-
   const cartItems = useSelector((store) => store.cart);
-
   const dispatch = useDispatch();
 
   const handleClearCart = () => {
@@ -37,12 +33,6 @@ const Cart = () => {
         {cartItems.map((item) => (
           <FoodItem key={item?.id} {...item} />
         ))}
-        {/* <button className="w-44 h-10 bg-black text-white mt-10">
-          {cartItems.forEach((item) => {
-            totalCost += item.price;
-          })}
-          {totalCost / 100} CheckOut
-        </button> */}
       </div>
       <div></div>
     </div>

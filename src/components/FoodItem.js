@@ -9,8 +9,6 @@ const FoodItem = ({ name, description, imageId, price, id }) => {
     dispatch(removeItem(id));
   };
 
-  // const totalCost = (price) => {};
-
   return (
     <div className="w-2/3 h-auto p-4 mb-4 mt-4 hover:shadow-lg border-2 border-gray-100 rounded-lg bg-white flex items-center justify-between font-Poppins lg:w-4/5 md:w-11/12 sm:w-full">
       <div className="flex gap-8 items-center">

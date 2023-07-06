@@ -5,12 +5,10 @@ import { IMG_CDN_URL } from "../config";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../utils/cartSlice";
 import { FaShoppingCart, FaStar } from "react-icons/fa";
-import { useState } from "react";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 
 const RestaurantMenu = () => {
   const cartItems = useSelector((store) => store.cart);
-
   const dispatch = useDispatch();
 
   const checkItemInCart = (id) => {
@@ -32,20 +30,11 @@ const RestaurantMenu = () => {
 
   const restaurantInfo = useRestaurantInfo(resId);
 
-  console.log("restaurantInfo");
-  console.log(restaurantInfo);
-
   const info = restaurantInfo?.cards[0]?.card?.card?.info;
-
-  console.log("info");
-  console.log(info);
 
   const recommended =
     restaurantInfo?.cards[restaurantInfo.cards.length - 1]?.groupedCard
       ?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-
-  console.log("recommended");
-  console.log(recommended);
 
   return !restaurantInfo ? (
     <RestaurantMenuShimmer />
@@ -61,7 +50,6 @@ const RestaurantMenu = () => {
           </span>
           <span className="text-[13px] text-[#686b78]">
             {info.areaName}, {info.city}
-            {/* <FaLocationDot /> */}
           </span>
           <span className="text-[13px] text-[#686b78] flex gap-1 items-center">
             {info.avgRating} <FaStar className="text-green-500" /> |{" "}
@@ -90,15 +78,13 @@ const RestaurantMenu = () => {
           }
           )
         </div>
-      ) : // <div className="text-black text-2xl w-full text-center font-semibold m-11">
-      //   No Recommendation
-      // </div>
-      null}
+      ) : null}
+
       {recommended?.map((recRes) => {
         return (
-          <>
+          <div key={recRes?.card?.info?.id}>
             {recRes?.card?.info?.imageId != undefined ? (
-              <div key={recRes?.card?.info?.id}>
+              <div>
                 <div className="flex justify-between px-7 my-6 border-black bottom-1 font-Poppins sm:px-5 sm:w-full sm:gap-6 sm:items-center sm:text-xs">
                   <div className="flex flex-col gap-2 md:gap-5">
                     <h1 className="text-base font-semibold sm:font-medium  sm:text-xs ">
@@ -141,7 +127,7 @@ const RestaurantMenu = () => {
                 <hr className="mx-8" />
               </div>
             ) : null}
-          </>
+          </div>
         );
       })}
     </div>
