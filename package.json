@@ -1,16 +1,15 @@
 {
-  "name": "assignments",
+  "name": "tastybites",
   "version": "1.0.0",
-  "description": "namaste react assignments",
-  "main": "index.js",
+  "description": "food ordering application",
   "scripts": {
     "test": "jest",
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Chirag-Solanki6804/food-ordering-application.git"
+    "url": "git+https://github.com/Chirag-Solanki6804/TastyBites.git"
   },
   "keywords": [
     "react",
@@ -19,9 +18,9 @@
   "author": "chirag solanki",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Chirag-Solanki6804/food-ordering-application.git/issues"
+    "url": "https://github.com/Chirag-Solanki6804/TastyBites.git/issues"
   },
-  "homepage": "https://github.com/Chirag-Solanki6804/food-ordering-application.git#readme",
+  "homepage": "https://github.com/Chirag-Solanki6804/TastyBites.git#readme",
   "devDependencies": {
     "parcel": "^2.9.0",
     "postcss": "^8.4.24",

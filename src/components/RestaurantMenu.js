@@ -5,7 +5,7 @@ import { IMG_CDN_URL } from "../config";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../utils/cartSlice";
 import { FaShoppingCart, FaStar } from "react-icons/fa";
-import { FaIndianRupeeSign } from "react-icons/fa6";
+import { FaIndianRupeeSign, FaRegHourglassHalf } from "react-icons/fa6";
 
 const RestaurantMenu = () => {
   const cartItems = useSelector((store) => store.cart);
@@ -29,9 +29,7 @@ const RestaurantMenu = () => {
   const { resId } = params;
 
   const restaurantInfo = useRestaurantInfo(resId);
-
   const info = restaurantInfo?.cards[0]?.card?.card?.info;
-
   const recommended =
     restaurantInfo?.cards[restaurantInfo.cards.length - 1]?.groupedCard
       ?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
@@ -63,9 +61,14 @@ const RestaurantMenu = () => {
         />
       </div>
       <hr className="mx-6" />
-      <div className="h-14 flex items-center justify-start gap-8 px-7">
-        <div>{info.sla.slaString}</div>
-        <div>{info.costForTwoMessage}</div>
+      <div className="h-16 flex items-center justify-start gap-8 px-7">
+        <div className="flex items-center gap-2 text-lg">
+          <FaRegHourglassHalf /> {info.sla.slaString}
+        </div>
+        <div className="flex items-center gap-2 text-base">
+          <FaIndianRupeeSign />
+          {info.costForTwoMessage}
+        </div>
       </div>
       <hr className="mx-6" />
       {recommended && recommended[recommended.length - 1].card?.info?.id ? (
