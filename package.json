@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "food ordering application",
   "scripts": {
-    "start": "parcel src/app.js",
-    "build": "parcel build src/app.js"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
