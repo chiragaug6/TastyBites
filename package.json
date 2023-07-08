@@ -4,7 +4,7 @@
   "description": "food ordering application",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build src/app.js"
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
