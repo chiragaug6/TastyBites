@@ -46,7 +46,7 @@ const Body = () => {
       setFilteredRestaurants((prevItems) => {
         filterItems = prevItems.filter((item) => item.data.avgRating != "--");
         const sortedItems = [...filterItems].sort(
-          (a, b) => b.data.avgRating - a.data.avgRatingx
+          (a, b) => b.data.avgRating - a.data.avgRating
         );
         return [...sortedItems];
       });
