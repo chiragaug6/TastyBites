@@ -1,0 +1,10 @@
+{
+  "extends": "@parcel/config-default",
+  "targets": {
+    "main": {
+      "publicUrl": "./",
+      "distDir": "dist",
+      "entryFiles": ["./index.html"]
+    }
+  }
+}

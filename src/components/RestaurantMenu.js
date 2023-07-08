@@ -107,8 +107,8 @@ const RestaurantMenu = () => {
                       alt="Food Image"
                       className="w-32 h-20 rounded-xl"
                     />
-                    {(result = checkItemInCart(recRes?.card?.info?.id))}
-                    {result ? (
+                    {/* {(result = checkItemInCart(recRes?.card?.info?.id))} */}
+                    {checkItemInCart(recRes?.card?.info?.id) ? (
                       <button
                         className="h-7 w-28 rounded-sm font-semibold shadow-lg text-xs bg-red-400 flex items-center justify-center gap-2 transition-all"
                         onClick={() => handleRemove(recRes?.card?.info?.id)}
