@@ -8,6 +8,12 @@ TastyBites is a React Web application inspired by the popular food delivery plat
 
 <br>
 
+## 📌 Overview
+
+<br>
+
+![Alt Image text](src/assets/Images/tatsyBitesProject.png?raw=true "Optional Title")
+
 ## ⚙️ Tech Stack used:
 
 -  React js as a UI library
