@@ -16,7 +16,7 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart);
 
   return (
-    <div className="sticky top-0 shadow-gray-300 shadow-lg px-44 w-full h-24 text-xl flex justify-between items-center bg-red-500 text-white font-Poppins xl:text-lg xl:px-24 lg:text-base lg:px-11 md:px-6 sm:px-1">
+    <div className="z-5 sticky top-0 shadow-gray-300 shadow-lg px-44 w-full h-24 text-xl flex justify-between items-center bg-red-500 text-white font-Poppins xl:text-lg xl:px-24 lg:text-base lg:px-11 md:px-6 sm:px-1">
       <BrandLogo />
 
       <ul className="flex w-1/3 justify-between xl:w-1/2 lg:w-2/3">

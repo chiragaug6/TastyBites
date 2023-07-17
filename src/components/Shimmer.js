@@ -14,7 +14,7 @@ export const AboutUsShimmer = () => {
 
 export const RestaurantMenuShimmer = () => {
   return (
-    <div className="w-2/3 mx-auto h-[600px] sm:w-full sm:h-full">
+    <div className="w-2/3 mx-auto h-[600px] sm:w-full sm:h-full z-2">
       <div className="h-52 flex justify-between p-6">
         <div className="flex flex-col gap-3">
           <div className="w-96 h-10 rounded-sm bg-slate-300 animate-pulse sm:w-32 sm:h-5"></div>

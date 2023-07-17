@@ -45,9 +45,10 @@ const Body = () => {
     if (sortValue == "Rating") {
       setFilteredRestaurants((prevItems) => {
         console.log("prevItems");
-
         console.log(prevItems);
-        filterItems = prevItems.filter((item) => item.data.avgRating != "--");
+        filterItems = prevItems.filter((item) => {
+          return item.data.avgRating != "--";
+        });
         const sortedItems = [...filterItems].sort(
           (a, b) => b.data.avgRating - a.data.avgRating
         );
