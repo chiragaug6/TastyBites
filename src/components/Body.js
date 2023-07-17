@@ -44,23 +44,20 @@ const Body = () => {
     //2. sort By Rating
     if (sortValue == "Rating") {
       setFilteredRestaurants((prevItems) => {
-<<<<<<< HEAD
-        console.log("prevItems");
-        console.log(prevItems);
         filterItems = prevItems.filter((item) => {
-=======
-        const filterItems = prevItems.filter((item) => {
->>>>>>> 0fb70992ee47a0c7fcdb48faf026f2401af80ca3
-          return item.data.avgRating != "--";
+          const filterItems = prevItems.filter((item) => {
+            return item.data.avgRating != "--";
+          });
+          const sortedItems = [...filterItems].sort(
+            (a, b) => b.data.avgRating - a.data.avgRating
+          );
+          return [...sortedItems];
         });
-        const sortedItems = [...filterItems].sort(
-          (a, b) => b.data.avgRating - a.data.avgRating
-        );
-        return [...sortedItems];
       });
     }
 
-    //3. Sort By Price (LOW TO HIGH)
+    // 3. Sort By Price (LOW TO HIGH)
+
     if (sortValue == "Cost: Low To High") {
       setFilteredRestaurants((prevItems) => {
         const sortedItems = [...prevItems].sort(
