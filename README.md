@@ -7,6 +7,11 @@ TastyBites is a React Web application inspired by the popular food delivery plat
 ## 📌 **Live Site URL:** <a href="https://tastybiteschiragsolanki.netlify.app">**Visit Now** 🚀</a>
 
 <br>
+## 📌 Overview
+
+<br>
+
+![Alt Image text](src/assets/Images/tatsyBitesProject.png?raw=true "Optional Title")
 
 ## ⚙️ Tech Stack used:
 
