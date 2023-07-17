@@ -1,7 +1,7 @@
 ## ⭐ Tastybites ⭐
 
 TastyBites is a React Web application inspired by the popular food delivery platform, Swiggy.**.
-<br>
+
 <br>
 
 ## 📌 **Live Site URL:** <a href="https://tastybiteschiragsolanki.netlify.app">**Visit Now** 🚀</a>
@@ -17,7 +17,6 @@ TastyBites is a React Web application inspired by the popular food delivery plat
 -  React router-V6 for routing
 -  Tailwind CSS for styling
 
-<br>
 <br>
 
 ## 😎 Key Features
