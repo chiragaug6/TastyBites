@@ -1,40 +1,37 @@
-<h1>TastyBites</h1>
-<hr><p>food-ordering-application</p><h2>General Information</h2>
-<hr><ul>
-<li>food-ordering-application</li>
-</ul><ul>
-<li>food-ordering-application</li>
-</ul><ul>
-<li>food-ordering-application</li>
-</ul><h2>Technologies Used</h2>
-<hr><ul>
-<li>HTML</li>
-</ul><ul>
-<li>CSS</li>
-</ul><ul>
-<li>JavaScript</li>
-</ul><ul>
-<li>React</li>
-</ul><ul>
-<li>Redux</li>
-</ul><ul>
-<li>Tailwindcss</li>
-</ul><h2>Features</h2>
-<hr><ul>
-<li>Shimmer UI for Better UserExperience</li>
-</ul><ul>
-<li>Search Feature</li>
-</ul><ul>
-<li>Sort on diffrent category Feature</li>
-</ul><ul>
-<li>Cart Feature Add Remove Item From Cart</li>
-</ul><ul>
-<li>Checking network connection</li>
-</ul><ul>
-<li>Implemented Lazy Loading or OnDemand Loading</li>
-</ul><h5>Steps</h5><ul>
-<li>npm install</li>
-</ul><ul>
-<li>npm run start</li>
-</ul><h2>Contact</h2>
-<hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/chiragagu6/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 10%;"></a></p>
+## ⭐ Tastybites ⭐
+
+TastyBites is a React Web application inspired by the popular food delivery platform, Swiggy.**.
+
+<br>
+
+## 📌 **Live Site URL:** <a href="https://tastybiteschiragsolanki.netlify.app">**Visit Now** 🚀</a>
+
+<br>
+
+## ⚙️ Tech Stack used:
+
+-  React js as a UI library
+-  Redux toolkit for state management
+-  Parcel for bundling
+-  Babel as a JavaScript transpiler
+-  React router-V6 for routing
+-  Tailwind CSS for styling
+
+<br>
+
+## 😎 Key Features
+
+-  Shimmer UI for better user experience
+-  Used Swiggy public API for Restaurants data
+-  Search restaurants by name
+-  Sorting based on different categories
+-  Cart Feature Add Remove Item From Cart
+-  Checking network connection using Custom Hook
+-  Responsive for small screen
+-  Implemented Lazy loading on About Page
+
+
+## 📬 Connect With Me
+
+- **LinkedIn** - [Chirag Solanki](https://www.linkedin.com/in/chiragagu6/)
+
