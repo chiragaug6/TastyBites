@@ -51,7 +51,10 @@ const RestaurantMenu = () => {
           </span>
           <span className="text-[13px] text-[#686b78] flex gap-1 items-center">
             {info.avgRating} <FaStar className="text-green-500" /> |{" "}
-            {info.totalRatings / 1000}K+ ratings
+            {info.totalRatings >= 1000
+              ? info.totalRatings / 1000 + "K+"
+              : info.totalRatings}
+            ratings
           </span>
         </div>
         <img
