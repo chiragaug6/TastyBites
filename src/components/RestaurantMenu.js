@@ -44,7 +44,7 @@ const RestaurantMenu = () => {
             {info.name.toUpperCase()}
           </span>
           <span className="text-[13px] text-[#686b78]">
-            S{info.cuisines.join(", ")}
+            {info.cuisines.join(", ")}
           </span>
           <span className="text-[13px] text-[#686b78]">
             {info.areaName}, {info.city}

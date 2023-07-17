@@ -44,15 +44,13 @@ const Body = () => {
     //2. sort By Rating
     if (sortValue == "Rating") {
       setFilteredRestaurants((prevItems) => {
-        filterItems = prevItems.filter((item) => {
-          const filterItems = prevItems.filter((item) => {
-            return item.data.avgRating != "--";
-          });
-          const sortedItems = [...filterItems].sort(
-            (a, b) => b.data.avgRating - a.data.avgRating
-          );
-          return [...sortedItems];
+        const filterItems = prevItems.filter((item) => {
+          return item.data.avgRating != "--";
         });
+        const sortedItems = [...filterItems].sort(
+          (a, b) => b.data.avgRating - a.data.avgRating
+        );
+        return [...sortedItems];
       });
     }
 
