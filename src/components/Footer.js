@@ -24,7 +24,7 @@ const Footer = () => {
             <AiFillGithub className="inline-block text-2xl" />
           </a>
           <a
-            href="https://www.linkedin.com/in/chiragagu6/"
+            href="https://www.linkedin.com/in/chiragaug6/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:text-blue-600"
