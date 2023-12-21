@@ -34,7 +34,7 @@ const Header = () => {
           <Link className="flex" to="/cart">
             <FaShoppingCart />
             <span className="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center text-base text-red-200 relative top-[-8] right-1">
-              {cartItems.length}
+              {cartItems?.length}
             </span>
           </Link>
         </li>

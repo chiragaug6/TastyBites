@@ -8,7 +8,7 @@ import { FaShoppingCart, FaStar } from "react-icons/fa";
 import { FaIndianRupeeSign, FaRegHourglassHalf } from "react-icons/fa6";
 
 const RestaurantMenu = () => {
-  const cartItems = useSelector((store) => store.cart);
+  const cartItems = useSelector((store) => store.cartItems);
   const dispatch = useDispatch();
 
   const checkItemInCart = (id) => {
@@ -54,7 +54,7 @@ const RestaurantMenu = () => {
             {info.totalRatings >= 1000
               ? info.totalRatings / 1000 + "K+"
               : info.totalRatings}
-            ratings
+            + ratings
           </span>
         </div>
         <img

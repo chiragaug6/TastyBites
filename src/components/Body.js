@@ -27,10 +27,27 @@ const Body = () => {
     const restaurantsCards = await getAllRestaurants();
     setAllRestaurants(restaurantsCards);
     setFilteredRestaurants(restaurantsCards);
-    setIsLoaded(false);
+    // setIsLoaded(false);
   }
 
+  const handleInputChange = (event) => {
+    setSearchInput(event.target.value);
+    setSortOption("");
+    if (searchInput.length <= 1) {
+      setFilteredRestaurants(allRestaurants);
+      setErrorMessage("");
+      return;
+    }
+    const [data, ErrorMsg] = filterRestaurantsByName(
+      searchInput,
+      allRestaurants
+    );
+    setFilteredRestaurants(data);
+    setErrorMessage(ErrorMsg);
+  };
+
   const handleSorting = (sortValue) => {
+    //sort by Delivery Time
     //1. Sort By Delivery Time
     if (sortValue == "Delivery Time") {
       setFilteredRestaurants((prevItems) => {
@@ -94,19 +111,7 @@ const Body = () => {
             type="text"
             value={searchInput}
             placeholder="Search 🔎..."
-            onChange={(event) => {
-              setSearchInput(event.target.value);
-              if (event.target.value == "") {
-                setFilteredRestaurants(allRestaurants);
-                setErrorMessage("");
-              }
-              // const [data, ErrorMsg] = filterRestaurantsByName(
-              //   searchInput,
-              //   allRestaurants
-              // );
-              // setFilteredRestaurants(data);
-              // setErrorMessage(ErrorMsg);
-            }}
+            onChange={handleInputChange}
           />
           <button
             className="w-32 h-11 text-white font-Poppins text-xl bg-red-500 rounded-r-xl xl:text-lg lg:text-base md:text-sm sm:text-xs sm:w-auto  sm:h-7 sm:px-3 "
@@ -123,7 +128,7 @@ const Body = () => {
           </button>
         </div>
         {/* Sorting */}
-        <div className="w-52 flex justify-center items-center gap-2 border-2 border-red-200 rounded-md xl:w-48 md:w-32 md:text-base sm:text-xs sm:justify-end md:mb-5">
+        {/* <div className="w-52 flex justify-center items-center gap-2 border-2 border-red-200 rounded-md xl:w-48 md:w-32 md:text-base sm:text-xs sm:justify-end md:mb-5">
           <select
             value={sortOption}
             onChange={(e) => {
@@ -152,7 +157,7 @@ const Body = () => {
               />
             </svg>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* {errorMessage && <div className="error-container">{errorMessage}</div>} */}
@@ -167,7 +172,46 @@ const Body = () => {
 
       {/* Conditional Rendering  */}
       {isLoaded ? (
-        <Shimmer />
+        <div className="bg-gray-100 p-8">
+          <div className="max-w-2xl mx-auto bg-white p-8 rounded shadow-md">
+            <h1 className="text-3xl font-bold mb-4">Welcome to TastyBites</h1>
+
+            <p className="text-lg mb-6">
+              We're excited to announce that we're working hard to bring you an
+              enhanced experience on TastyBites. Our team is dedicated to adding
+              new features and functionalities to make your visit memorable.
+            </p>
+
+            <div className="border-t-2 border-gray-200 pt-6">
+              <h2 className="text-2xl font-bold mb-4">
+                What's Coming in Version 2?
+              </h2>
+
+              <ul className="list-disc pl-6">
+                <li className="mb-2">
+                  Real-time Order Updates: Enjoy instant updates on your orders.
+                </li>
+                <li className="mb-2">
+                  Live Location Tracking: Track your orders with advanced
+                  location functionality.
+                </li>
+                <li className="mb-2">
+                  Advanced Functionality: Discover a new level of convenience
+                  and excitement!
+                </li>
+                <li className="mb-2">
+                  making it Full Stack Application using MERN
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 text-gray-500 text-center mr-6">
+              <h2 className="mt-2">
+                TastyBites version-2.0 launching soon...🔥🔥
+              </h2>
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="w-full flex gap-x-5 gap-y-20 pb-5 flex-wrap items-start justify-center sm:gap-y-3 sm:pb-0">
           {filteredRestaurants?.map((restaurant) => {

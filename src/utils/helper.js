@@ -22,8 +22,14 @@ export async function getAllRestaurants() {
   try {
     const data = await fetch(Swiggy_API_URL);
     const json = await data.json();
+    console.log("myJson", json);
+    console.log(
+      "Json Data find restandt card",
+      json.data.success.cards.gridWidget.gridElements.infoWithStyle.info
+        .gridElements
+    );
     // after first render of component data is updated in state varibales and every time state variable update then component render
-    const allRestaurants = await json?.data?.cards[2]?.data?.data?.cards;
+    const allRestaurants = await json?.data?.cards[0]?.data?.data?.cards;
     return allRestaurants;
   } catch (error) {
     console.log(error);
